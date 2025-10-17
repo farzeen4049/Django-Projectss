@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mx-auto text-center fs-5 border border-2 shadow mt-5 p-5">
+<h3> View BOOKS PAGE</h3>
+    <table class="table table-bordered mt-5 ">
+        <tr>
+            <th>title</th>
+            <th>author</th>
+            <th>price</th>
+            <th>pages</th>
+            <th>language</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+        {% for i in books %}
+        <tr>
+            <td>{{i.title}}</td>
+            <td>{{i.author}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.pages}}</td>
+            <td>{{i.language}}</td>
+
+            <td><img src="{{i.image.url}}" height="100px" width="100px"></td>
+
+        <td>
+                <a href='{% url "books:viewdetails" i.id%}' class="btn btn-warning me-3">View</a>
+                <a href='{% url "books:editbook" i.id%}'  class="btn btn-warning me-3">Edit</a>
+                <a href= '{% url "books:deletebook" i.id%}' class="btn btn-warning me-3">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+<!--    <ol>-->
+<!--        {%   for i in book %}-->
+<!--        <li>Book Details</li>-->
+<!--        <ul>-->
+<!--            <li>Title &#45;&#45; {{i.title}}</li>-->
+<!--        <li>Author &#45;&#45; {{i.author}}</li>-->
+<!--        <li>Price &#45;&#45; {{i.price}}</li>-->
+<!--        <li>Pages &#45;&#45; {{i.pages}}</li>-->
+<!--        <li>Language &#45;&#45; {{i.language}}</li>-->
+<!--        </ul>-->
+<!--        {% endfor %}-->
+<!--    </ol>-->
+
+
+</div>
+{% endblock %}

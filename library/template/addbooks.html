@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="container text-center mx-auto border border-3px border-dark bg-info w-50">
+
+<h1>Add Books</h1>
+     <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{form|crispy}}
+          <div class="mb-3">
+               <input type="submit" value="submit">
+          </div>
+     </form>
+     </div>
+{% endblock %}

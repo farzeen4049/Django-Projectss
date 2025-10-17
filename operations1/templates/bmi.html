@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container border border-2 mx-auto text-center mt-5 p-3 bg-danger">
+  <h1><center>BMI</center></h1>
+
+    {% if result %}
+     <h1>BMI is {{result}}</h1>
+    {% else %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form }}
+         <div class="mt-3">
+            <input type="submit" value="CALCULATE">
+           </div>
+
+    {% endif %}
+   </div>
+
+{% endblock %}

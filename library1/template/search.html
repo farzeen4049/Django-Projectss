@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>login</title>
+  {% endblock %}
+
+{% block content %}
+<div class="container text-center mx-auto mt-5 p-4 border border-2px border-danger">
+
+<h1>Search</h1>
+    {% if book %}
+
+    <table class="table table-bordered mt-5 ">
+        <tr>
+            <th>title</th>
+            <th>author</th>
+            <th>price</th>
+            <th>pages</th>
+            <th>language</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+        {% for i in book %}
+        <tr>
+            <td>{{i.title}}</td>
+            <td>{{i.author}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.pages}}</td>
+            <td>{{i.language}}</td>
+
+            <td><img src="{{i.image.url}}" height="100px" width="100px"></td>
+
+        </tr>
+    {% endfor %}
+       </table>
+        {% else %}
+    <h2>NO Search Result</h2>
+    {% endif %}
+
+    </form>
+
+</div>
+{% endblock %}

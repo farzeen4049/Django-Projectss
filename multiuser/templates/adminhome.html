@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Admin</title>
+{% endtitle %}
+
+
+{% block content %}
+<div class="container border border-2 text-center border-dark p-5 mt-5">
+  <h1>Admin Home</h1>
+  {% if user.is_authenticated %}
+  {{user.username}}
+  {% else %}
+  <h4>guest</h4>
+  {% endif %}
+</div>
+
+{% endblock %}

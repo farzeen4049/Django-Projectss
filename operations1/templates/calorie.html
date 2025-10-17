@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container border border-2 mx-auto text-center mt-5 p-3 bg-danger">
+  <h1><center>Calorie Calculator</center></h1>
+
+
+    <form method="post">
+        {% csrf_token %}
+
+<div class="mt-3">
+  <input type="submit" value="CALCULATE">
+</div>
+
+    </form>
+    {% if result %}
+    <h1>You need {{result}} calorie inorder to maintain weight</h1>
+    {% endif %}
+</div>
+
+{% endblock %}
